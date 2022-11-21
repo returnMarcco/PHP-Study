@@ -463,6 +463,8 @@
     $orc = new player_character("Saurfang", "Orc");
     $human = new player_character("Arthas", "Human");
     $bloodElf = new blood_elf("Kael'thas", "Ashes of Alar");
+
+    // Testing abstract classes + traits
     $abstractObj = new inherits_abstract_and_trait();
     echo "<br>";
     $abstractObj->abstract_method();
@@ -470,11 +472,8 @@
     $abstractObj->trait_method();
     
     
-
+    // Dumping object data
     var_dump($orc);
     var_dump($human);
     var_dump($bloodElf);
-    
-
-    // Testing abstract class
 ?>
