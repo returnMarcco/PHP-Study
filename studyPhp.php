@@ -258,7 +258,6 @@
         if (!$caseSens) {
             $pattern .= "i";
         }
-        
         echo "preg_match() " . $pattern . ": " . preg_match($pattern, $str);
     }
 
@@ -266,7 +265,6 @@
         if (!$caseSens) {
             $pattern .= "i";
         }
-        
         echo "preg_match_all() " . $pattern . ": " . preg_match_all($pattern, $str);
     }
 
@@ -274,11 +272,48 @@
         if (!$caseSens) {
             $pattern .= "i";
         }
-
         echo "preg_replace() " . $pattern. ": " . preg_replace($pattern, $replacement, $replace);
     }
 
-    // Function testing
+    // Class Definition
+    // ------------------
+
+    class player_character {
+        public $name;
+        public $race;
+
+        public function __construct($name, $race) {
+            $this->name = $name;
+            $this->race = $race;
+        }
+
+        public function __destruct() {
+            echo "Player character ". $this->name . " has been destroyed.<br>";
+        }
+        
+        // Setter/Getter Methods
+        public function set_name($name) {
+            $this->name = $name;
+        }
+
+        public function get_name() {
+            return $this->name;
+        }
+    }
+
+    class blood_elf extends player_character {
+        const RACE = "Blood Elf";
+        public $trinket;
+
+        public function __construct($name, $trinket ) {
+            $this->name = $name;
+            $this->trinket = $trinket;
+        }
+    }
+
+    
+
+    // Function/Class Testing
     // ---------------------
     $sumOfVar = sumOfVar(20, 30);
     echo "Sum Function Test: " . $sumOfVar;
@@ -384,6 +419,34 @@
     testRegExPregMatchAll("/hell/", "Hello World, it is a hellscape!", false);
     echo "<br>";
     testRegPregReplace("/hello/", "Goodbye", "Hello World", false);
+    echo "<br><br>";
+    echo "Testing Classes <br>";
+    echo "--------------------<br>";
+    
+    
+    // Without Constructor Method
+    // $human = new player_character;
+    // $orc = new player_character;
+    // $human->set_name("Arthas");
+    // $human->race = "Human";
+    // $orc->set_name("Thrall");
+    // $orc->race = "Orc";
+    // echo $human->get_name();
+    // echo "<br>";
+    // echo $orc->get_name();
+    // $orc->set_name("Grom");
+    // echo "<br>" . $orc->get_name();
+
+    // With Constructor Method
+    $orc = new player_character("Saurfang", "Orc");
+    $human = new player_character("Arthas", "Human");
+    $bloodElf = new blood_elf("Kael'thas", "Ashes of Alar");
+
+    var_dump($orc);
+    var_dump($human);
+    var_dump($bloodElf);
+
+    
 
     
     
