@@ -311,9 +311,31 @@
         }
     }
 
+    abstract class test_abstract {
+        public $val = 0;
+
+        public function abstract_method() {
+            
+        }
+    }
+
+    trait my_first_trait {
+        public function trait_method() {
+            echo "This is a trait method";
+        }
+    }
+
+    class inherits_abstract_and_trait {
+        public function abstract_method() {
+            echo "This is object inherits an abstract class";
+        }
+        use my_first_trait;
+    }
+
+   
     
 
-    // Function/Class Testing
+    // Function/Class/Trait Testing
     // ---------------------
     $sumOfVar = sumOfVar(20, 30);
     echo "Sum Function Test: " . $sumOfVar;
@@ -420,7 +442,7 @@
     echo "<br>";
     testRegPregReplace("/hello/", "Goodbye", "Hello World", false);
     echo "<br><br>";
-    echo "Testing Classes <br>";
+    echo "Testing OOP <br>";
     echo "--------------------<br>";
     
     
@@ -441,17 +463,18 @@
     $orc = new player_character("Saurfang", "Orc");
     $human = new player_character("Arthas", "Human");
     $bloodElf = new blood_elf("Kael'thas", "Ashes of Alar");
+    $abstractObj = new inherits_abstract_and_trait();
+    echo "<br>";
+    $abstractObj->abstract_method();
+    echo "<br>";
+    $abstractObj->trait_method();
+    
+    
 
     var_dump($orc);
     var_dump($human);
     var_dump($bloodElf);
-
     
 
-    
-    
-
-
-
-
+    // Testing abstract class
 ?>
