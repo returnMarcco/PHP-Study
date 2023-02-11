@@ -1,2 +1,2 @@
-# php-study
-PHP Study
+# PHP-Study
+As the name suggests..
